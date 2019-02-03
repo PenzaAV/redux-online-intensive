@@ -14,19 +14,18 @@ import { mockedProfile } from '../../instruments/mockedData';
 import { Composer, Catcher, Post } from '../../components';
 
 // Actions
-import { fetchPostsAsync } from "../../bus/posts/actions";
-import { createPosAsync } from "../../bus/posts/actions";
+import { postsActions } from "../../bus/posts/actions";
 
 const mapStateToProps = (state) => {
     return {
         posts: state.posts,
-    }
+    };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        actions: bindActionCreators({ fetchPostsAsync, createPosAsync }, dispatch)
-    }
+        actions: bindActionCreators({ fetchPostsAsync: postsActions.fetchPostsAsync, createPosAsync: postsActions.createPosAsync }, dispatch),
+    };
 };
 
 @connect(mapStateToProps, mapDispatchToProps)
