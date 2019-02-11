@@ -11,7 +11,6 @@ export function* removePost ({ payload: postId }) {
         yield put(uiActions.startFetching());
         const response = yield apply(api, api.posts.remove, [postId]);
         if (response.status !== 204) {
-
             throw new Error(message);
         }
         yield put(postsActions.removePost(postId));
