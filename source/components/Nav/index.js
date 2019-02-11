@@ -7,7 +7,13 @@ import cx from 'classnames';
 // Instruments
 import Styles from './styles.m.css';
 import { book } from '../../navigation/book';
-import { mockedProfile } from '../../instruments/mockedData';
+
+// Actions
+import { authActions } from "../../bus/auth/actions";
+
+const mapDispatcToProps = {
+    logoutAsync: authActions.logoutAsync,
+};
 
 const mapStateToProps = (state) => {
     return {
@@ -17,7 +23,7 @@ const mapStateToProps = (state) => {
 };
 
 
-@connect(mapStateToProps)
+@connect(mapStateToProps, mapDispatcToProps)
 export default class Nav extends Component {
     static defaultProps = {
         // State

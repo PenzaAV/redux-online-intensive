@@ -8,4 +8,9 @@ export const profileActions = {
             payload: profile,
         };
     },
+    claerProfile: () => {
+        return {
+            type: types.CLEAR_PROFILE,
+        }
+    }
 };

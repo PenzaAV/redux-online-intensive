@@ -1,6 +1,6 @@
 //core
 import { combineReducers } from "redux";
-
+import { routerReducer as router } from "react-router-redux";
 //reducers
 import { postsReducer as posts } from "../bus/posts/reducer";
 import { uiReducer as ui } from "../bus/ui/reducer";
@@ -12,4 +12,5 @@ export const rootReducer = combineReducers({
     ui,
     auth,
     profile,
+    router,
 });
