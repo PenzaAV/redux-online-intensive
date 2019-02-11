@@ -1,7 +1,7 @@
 // Types
 import { types } from './types';
 
-export const actions = {
+export const Actions = {
     action: () => {
         return {
             type: types.TYPE,
