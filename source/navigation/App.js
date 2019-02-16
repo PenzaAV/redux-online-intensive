@@ -7,8 +7,8 @@ import { withRouter } from "react-router-dom";
 // Routes
 import Private from './Private'
 import Public from './Public'
-import {authActions} from "../bus/auth/actions";
-
+import { authActions } from "../bus/auth/actions";
+import { socketActions } from "../bus/socket/actions";
 // Components
 import { Loading } from '../components';
 const mapStateToProps = (state) => {
@@ -17,6 +17,9 @@ const mapStateToProps = (state) => {
         isInitialized:   state.auth.get('isInitialized'),
     }
 };
+
+// WebSocket
+import { joinSocketChannel } from "../init/socket";
 
 const mapDispatchToProps = {
     initializeAsync: authActions.initializeAsync,
@@ -30,7 +33,8 @@ const mapDispatchToProps = {
 )
 export default class App extends Component {
     componentDidMount() {
-        this.props.initializeAsync()
+        this.props.initializeAsync();
+        joinSocketChannel();
     }
 
     render () {
