@@ -33,8 +33,6 @@ export const postsActions = {
         };
     },
     unlikePost: (likedPostData) => {
-        console.log(likedPostData);
-
         return {
             type:    types.UNLIKE_POST,
             payload: likedPostData,
