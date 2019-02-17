@@ -17,26 +17,28 @@ export const postsActions = {
     },
     clearPosts: () => {
         return {
-            type:    types.CLEAR_POSTS,
+            type: types.CLEAR_POSTS,
         };
     },
     removePost: (postId) => {
         return {
-            type: types.REMOVE_POST,
+            type:    types.REMOVE_POST,
             payload: postId,
-        }
+        };
     },
     likePost: (likedPostData) => {
         return {
-            type: types.LIKE_POST,
+            type:    types.LIKE_POST,
             payload: likedPostData,
-        }
+        };
     },
     unlikePost: (likedPostData) => {
+        console.log(likedPostData);
+
         return {
-            type: types.UNLIKE_POST,
+            type:    types.UNLIKE_POST,
             payload: likedPostData,
-        }
+        };
     },
 
     // Async
@@ -53,20 +55,20 @@ export const postsActions = {
     },
     removePostAsync: (postId) => {
         return {
-            type: types.REMOVE_POST_ASYNC,
+            type:    types.REMOVE_POST_ASYNC,
             payload: postId,
-        }
+        };
     },
     likePostAsync: (postId) => {
         return {
-            type: types.LIKE_POST_ASYNC,
+            type:    types.LIKE_POST_ASYNC,
             payload: postId,
-        }
+        };
     },
     unlikePostAsync: (postId) => {
         return {
-            type: types.UNLIKE_POST_ASYNC,
+            type:    types.UNLIKE_POST_ASYNC,
             payload: postId,
-        }
+        };
     },
 };

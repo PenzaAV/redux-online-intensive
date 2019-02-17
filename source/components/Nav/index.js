@@ -11,26 +11,20 @@ import { book } from '../../navigation/book';
 // Actions
 import { authActions } from "../../bus/auth/actions";
 
-const mapDispatcToProps = {
+const mapDispatchToProps = {
     logoutAsync: authActions.logoutAsync,
 };
 
 const mapStateToProps = (state) => {
     return {
         isAuthenticated: state.auth.get('isAuthenticated'),
-        profile:  state.profile,
-    }
+        profile:         state.profile,
+        isOnline:        state.ui.get('isOnline'),
+    };
 };
 
-
-@connect(mapStateToProps, mapDispatcToProps)
+@connect(mapStateToProps, mapDispatchToProps)
 export default class Nav extends Component {
-    static defaultProps = {
-        // State
-        isOnline: false,
-        // Actions
-        logoutAsync: () => {},
-    };
 
     _getNav = () => {
         const { isAuthenticated, profile } = this.props;

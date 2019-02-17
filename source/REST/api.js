@@ -3,81 +3,91 @@ import { MAIN_URL, groupId } from "./config";
 
 export const api = {
     get token () {
-        return localStorage.getItem('token')
+        return localStorage.getItem('token');
     },
     auth: {
         signup (userInfo) {
-            return fetch(`${MAIN_URL}/user/${groupId}`,{
-                method: 'POST',
+            return fetch(`${MAIN_URL}/user/${groupId}`, {
+                method:  'POST',
                 headers: {
-                    'Content-Type':'application/json',
+                    'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(userInfo),
             });
         },
         login (credentials) {
-            return fetch(`${MAIN_URL}/user/login`,{
-                method: 'POST',
+            return fetch(`${MAIN_URL}/user/login`, {
+                method:  'POST',
                 headers: {
-                    'Content-Type':'application/json',
+                    'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(credentials),
             });
         },
         logout () {
-            return fetch(`${MAIN_URL}/user/logout`,{
-                method: 'GET',
+            return fetch(`${MAIN_URL}/user/logout`, {
+                method:  'GET',
                 headers: {
                     Authorization: this.token,
                 },
             });
         },
         authenticate () {
-            return fetch(`${MAIN_URL}/user/login`,{
-                method: 'POST',
+            return fetch(`${MAIN_URL}/user/login`, {
+                method:  'POST',
                 headers: {
-                    'Content-Type':'application/json',
+                    'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({token: this.token}),
+                body: JSON.stringify({ token: this.token }),
             });
         },
     },
     posts: {
         fetch () {
-            return fetch(`${MAIN_URL}/feed`,{
-                method: 'GET',
+            return fetch(`${MAIN_URL}/feed`, {
+                method:  'GET',
                 headers: {
                     Authorization: this.token,
-                }
+                },
             });
         },
         create (comment) {
-            return fetch(`${MAIN_URL}/feed`,{
-                method: 'POST',
+            return fetch(`${MAIN_URL}/feed`, {
+                method:  'POST',
                 headers: {
-                    Authorization: this.token,
+                    Authorization:  this.token,
                     'Content-type': 'application/json',
                 },
                 body: JSON.stringify({
-                   comment
-                })
+                    comment,
+                }),
             });
         },
         remove (postId) {
-            return fetch( `${MAIN_URL}/feed/${postId}`,{
-                method: 'DELETE',
-                    headers:{
-                        Authorization: this.token,
-                    }
+            return fetch(`${MAIN_URL}/feed/${postId}`, {
+                method:  'DELETE',
+                headers: {
+                    Authorization: this.token,
+                },
             });
         },
         like (postId) {
-            return fetch( `${MAIN_URL}/feed/like/${postId}`,{
-                method: 'PUT',
-                headers:{
+            return fetch(`${MAIN_URL}/feed/like/${postId}`, {
+                method:  'PUT',
+                headers: {
                     Authorization: this.token,
-                }
+                },
             });
-        }
-    }
+        },
+    },
+    users: {
+        fetch () {
+            return fetch(`${MAIN_URL}/user/all`, {
+                method:  'GET',
+                headers: {
+                    Authorization: this.token,
+                },
+            });
+        },
+    },
 };

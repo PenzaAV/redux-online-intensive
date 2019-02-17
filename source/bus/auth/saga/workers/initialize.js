@@ -5,11 +5,12 @@ import { put, apply } from "redux-saga/effects";
 import { authActions } from "../../../auth/actions";
 
 export function* initialize () {
-      const remember = yield apply(localStorage, localStorage.getItem, ['remember']);
-      const token = yield apply(localStorage, localStorage.getItem, ['token']);
-      if (token && remember) {
-          yield put(authActions.authenticateAsync());
-      }else{
-          yield put(authActions.initialize());
-      }
+    const remember = yield apply(localStorage, localStorage.getItem, ['remember']);
+    const token = yield apply(localStorage, localStorage.getItem, ['token']);
+
+    if (token && remember) {
+        yield put(authActions.authenticateAsync());
+    } else {
+        yield put(authActions.initialize());
+    }
 }
