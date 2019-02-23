@@ -1,4 +1,4 @@
-export function customThunk(store) {
+export function customThunk (store) {
     return function (next) {
         return function (action) {
             if (typeof action === 'function') {
@@ -6,6 +6,6 @@ export function customThunk(store) {
             }
 
             return next(action);
-        }
-    }
+        };
+    };
 }

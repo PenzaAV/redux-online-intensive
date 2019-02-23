@@ -9,7 +9,8 @@ import { uiActions } from "../../../ui/actions";
 import { profileActions } from "../../../profile/actions";
 import { postsActions } from "../../../posts/actions";
 import { usersActions } from "../../../users/actions";
-import { book } from '../../../../navigation/book'
+import { book } from '../../../../navigation/book';
+import { actions } from "react-redux-form";
 
 export function* logout () {
     try {
@@ -27,10 +28,12 @@ export function* logout () {
     } finally {
         yield apply(localStorage, localStorage.removeItem, ['token']);
         yield apply(localStorage, localStorage.removeItem, ['remember']);
-        yield put(profileActions.claerProfile());
+        yield put(profileActions.clearProfile());
         yield put(postsActions.clearPosts());
         yield put(usersActions.clearUsers());
         yield put(uiActions.stopFetching());
+        yield put(actions.reset('forms.user'));
+
         yield put(authActions.logout());
         yield put(replace(book.login));
     }

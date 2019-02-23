@@ -7,6 +7,8 @@ import cx from 'classnames';
 // Instruments
 import Styles from './styles.m.css';
 import { login } from '../../bus/forms/shapes';
+
+// Actions
 import { authActions } from "../../bus/auth/actions";
 
 const mapStateToProps = (state) => {
@@ -17,7 +19,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
     loginAsync: authActions.loginAsync,
 };
-@connect(mapStateToProps,mapDispatchToProps)
+
+@connect(mapStateToProps, mapDispatchToProps)
 export default class LoginForm extends Component {
 
     _submitLoginForm = (credentials) => {
