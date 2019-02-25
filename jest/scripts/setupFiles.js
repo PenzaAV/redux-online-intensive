@@ -47,6 +47,27 @@ const fetchResponseFail400 = {
 
 const url = 'https://www.url.com';
 
+const users = [
+    {
+        id:        "test_user_1_id",
+        firstName: "test_user_1_first_name",
+        lastName:  "test_user_1_last_name",
+        avatar:    "test_user_1_avatar_url",
+    },
+    {
+        id:        "test_user_2_id",
+        firstName: "test_user_2_first_name",
+        lastName:  "test_user_2_last_name",
+        avatar:    "test_user_2_avatar_url",
+    },
+    {
+        id:        "test_user_3_id",
+        firstName: "test_user_3_first_name",
+        lastName:  "test_user_3_last_name",
+        avatar:    "test_user_3_avatar_url",
+    }
+];
+
 global.__ = {
     userProfile,
     errorMessage,
@@ -59,6 +80,7 @@ global.__ = {
     fetchResponseFail400,
     credentials,
     url,
+    users,
 };
 global.fetch = fetch;
 global.localStorage = new LocalStorage();
