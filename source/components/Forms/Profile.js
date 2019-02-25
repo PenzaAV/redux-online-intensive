@@ -1,11 +1,9 @@
 // Core
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
 import { Link } from 'react-router-dom';
-import { Form, Control } from 'react-redux-form';
+import { Control, Form } from 'react-redux-form';
 import cx from 'classnames';
-import { Map } from 'immutable';
 
 // Instruments
 import Styles from './styles.m.css';
@@ -24,11 +22,10 @@ const mapStateToProps = (state) => {
         profile:    state.profile,
     };
 };
-const mapDispatchToProps =  profileActions;
 
 @connect(
     mapStateToProps,
-    mapDispatchToProps
+    profileActions
 )
 export default class Profile extends Component {
     static defaultProps = {

@@ -28,6 +28,12 @@ export const profileActions = {
             payload: newName,
         };
     },
+    updatePasswordAsync: (passwordData) => {
+        return {
+            type:    types.UPDATE_PASSWORD_ASYNC,
+            payload: passwordData,
+        };
+    },
     updateAvatarAsync: (newAvatar) => {
         return {
             type:    types.UPDATE_AVATAR_ASYNC,
